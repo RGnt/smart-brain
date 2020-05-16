@@ -6,13 +6,10 @@ const FaceRecognition = () => {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const [img, setImg] = useState(null)
-  const [faceCount, setFaceCount] =  useState(0);
   const boundingBoxes = useSelector(state => state.image.boxes)
   const url = useSelector(state => state.image.imageUrl)
   const imageLoaded = useSelector(state => state.image.isLoaded)
-  // useEffect(() => {
-  // }, [imageLoaded])
-  
+ 
   
   useEffect(() => {
     setImg(document.getElementById('inputImage'))
@@ -22,8 +19,7 @@ const FaceRecognition = () => {
       setHeight(Number(compStyles.height.replace("px", "")))
       setWidth(Number(img.width))
     }
-    // setCoords(doTheMath(width, height))
-  }, [imageLoaded])
+  }, [imageLoaded, img])
 
   console.log(width, height)
 

@@ -38,6 +38,7 @@ const imageSlice = createSlice({
   extraReducers: {
     [sendImage.fulfilled]: (state, { payload }) => {
       state.isLoaded = false;
+      state.boxes = [];
       const data = payload.outputs[0].data.regions.map((boundingBox) => {
         let bb = boundingBox.region_info.bounding_box;
         return {
